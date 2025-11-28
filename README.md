@@ -4,13 +4,17 @@
 
 ### API Docs
 
-TODO
+https://goldenratio.github.io/core-utils/
 
 ## Install
 
 ### NPM
 
-TODO
+```console
+npm install --save @goldenratio/core-utils
+```
+
+https://www.npmjs.com/package/@goldenratio/core-utils
 
 ## Release
 
