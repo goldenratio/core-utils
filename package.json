@@ -34,7 +34,7 @@
     "README.md",
     "LICENSE"
   ],
-  "homepage": "https://github.com/goldenratio/karlib#readme",
+  "homepage": "https://github.com/goldenratio/core-utils#readme",
   "devDependencies": {
     "@types/node": "24.7.2",
     "esbuild": "0.25.10",
