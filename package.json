@@ -1,0 +1,45 @@
+{
+  "name": "@goldenratio/core-utils",
+  "version": "0.0.1",
+  "description": "Core Utils",
+  "type": "module",
+  "module": "./target/core-utils.js",
+  "types": "./target/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./target/types/index.d.ts",
+      "import": "./target/core-utils.js"
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf target js",
+    "build": "npm run clean && tsc && node ./build.ts",
+    "test": "node --import tsx --test ./tests/*.test.ts",
+    "generate-docs": "rm -rf ./docs && typedoc --theme default --excludePrivate --excludeProtected",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goldenratio/core-utils.git"
+  },
+  "author": "Karthik Jayakumar",
+  "license": "Zlib",
+  "bugs": {
+    "url": "https://github.com/goldenratio/core-utils/issues"
+  },
+  "files": [
+    "target/",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/goldenratio/karlib#readme",
+  "devDependencies": {
+    "@types/node": "24.7.2",
+    "esbuild": "0.25.10",
+    "typedoc": "0.28.14",
+    "typescript": "5.9.3",
+    "tsx": "4.20.6"
+  }
+}
