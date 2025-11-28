@@ -55,6 +55,6 @@ export function unwrap<T>(value: T | null | undefined, assertion: string): T {
  * Do not use this, unless you really have to
  * A function to unsafely typecast in typescript
  */
-export function unsafe_assert<T>(value: unknown): T {
+export function unsafe_cast<T>(value: unknown): T {
   return value as T;
 }
