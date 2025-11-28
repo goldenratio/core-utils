@@ -3,7 +3,7 @@ import assert from "node:assert";
 
 import { PoolBag } from "../src/pool_bag.js";
 
-describe("PoolBag", () => {
+describe("PoolBag Tests", () => {
   it("creates pool with given size using set_size", () => {
     let createCount = 0;
 
