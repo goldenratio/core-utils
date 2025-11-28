@@ -1,11 +1,20 @@
 import type { EventEmitterLike, EventEmitterOnOffLike } from "./types.js";
 
+/**
+ * Represents an object that can be disposed.
+ */
 export interface Disposable {
+  /**
+   * Releases internal resources or subscriptions.
+   */
   dispose(): void;
 }
 
 export type DisposeCallback = () => void;
 
+/**
+ * Tells if the object is Disposable or not
+ */
 export function is_disposable(object: unknown): object is Disposable {
   return (
     typeof object === "object"
@@ -15,6 +24,9 @@ export function is_disposable(object: unknown): object is Disposable {
   );
 }
 
+/**
+ * Utility class for event subscription and Disposable instances
+ */
 export class DisposeBag implements Disposable {
   private readonly list = new Set<DisposeCallback>();
   private is_disposed = false;
