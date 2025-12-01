@@ -1,6 +1,6 @@
 {
   "name": "@goldenratio/core-utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Core Utils",
   "type": "module",
   "module": "./target/core-utils.js",
