@@ -44,7 +44,6 @@ describe("type util test", () => {
     assert.equal(to_float(""), undefined);
     assert.equal(to_float("invalid-data"), undefined);
     assert.equal(to_float(undefined), undefined);
-    // eslint-disable-next-line unicorn/no-null
     assert.equal(to_float(null), undefined);
   });
 
