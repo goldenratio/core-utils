@@ -4,10 +4,10 @@
   "description": "Core Utils",
   "type": "module",
   "module": "./target/core-utils.js",
-  "types": "./target/types/index.d.ts",
+  "types": "./target/types/main.d.ts",
   "exports": {
     ".": {
-      "types": "./target/types/index.d.ts",
+      "types": "./target/types/main.d.ts",
       "import": "./target/core-utils.js"
     }
   },
