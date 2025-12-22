@@ -21,7 +21,7 @@ export function random_float(min: number, max: number): number {
  */
 export function random_item_from_array<T = unknown>(src: readonly T[]): T {
   const idx = random_int(0, src.length - 1);
-  return src[idx];
+  return src[idx] as T;
 }
 
 /**

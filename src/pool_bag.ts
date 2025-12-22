@@ -41,8 +41,10 @@ export class PoolBag<TPoolType = unknown> implements Disposable {
     }
 
     while (current > size) {
-      const [item] = this.items.values();
-      this.delete(item);
+      const item = this.items.values().next().value;
+      if (item) {
+        this.delete(item);
+      }
       current--;
     }
   }
@@ -60,7 +62,10 @@ export class PoolBag<TPoolType = unknown> implements Disposable {
       return this.create_pooled_item();
     }
 
-    const [item] = this.items.values();
+    const item = this.items.values().next().value;
+    if (!item) {
+      return this.create_pooled_item();
+    }
     this.on_take_from_pool(item);
     this.items.delete(item);
     return item;
