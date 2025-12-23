@@ -95,6 +95,12 @@ export function map_range(
   return target_range1 + v * (target_range2 - target_range1);
 }
 
+/**
+ * Tells if the value is in between min and max
+ */
+export function is_between(value: number, min: number, max: number): boolean {
+  return value >= min && value <= max;
+}
 
 /**
  * Linearly interpolates between to any two values at time t.
