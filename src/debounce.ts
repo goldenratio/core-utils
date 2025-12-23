@@ -1,6 +1,9 @@
+/**
+ * Wraps a given function into a debounce function
+ */
 export function debounce<T extends (...args: Parameters<T>) => void>(
   fn: T,
-  delay: number
+  delay: number = 100
 ): (...args: Parameters<T>) => void {
   let timer: number | undefined = undefined;
 
