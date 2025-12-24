@@ -6,11 +6,11 @@ export function debounce<T extends (...args: Parameters<T>) => void>(
   delay: number,
   options?: { readonly signal?: AbortSignal },
 ): (...args: Parameters<T>) => void {
-  let timer: number | undefined = undefined;
+  let timer: ReturnType<typeof globalThis.setTimeout> | undefined = undefined;
 
   const on_abort = (): void => {
     if (timer !== undefined) {
-      window.clearTimeout(timer);
+      globalThis.clearTimeout(timer);
     }
     timer = undefined;
   };
@@ -29,10 +29,10 @@ export function debounce<T extends (...args: Parameters<T>) => void>(
     }
 
     if (timer !== undefined) {
-      window.clearTimeout(timer);
+      globalThis.clearTimeout(timer);
     }
 
-    timer = window.setTimeout(() => {
+    timer = globalThis.setTimeout(() => {
       timer = undefined;
       if (options?.signal?.aborted) {
         return;
