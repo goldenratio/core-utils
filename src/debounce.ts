@@ -1,5 +1,40 @@
 /**
- * Wraps a given function into a debounce function
+ * Creates a debounced version of `fn` that delays invocation until `delay` ms have
+ * elapsed since the last call.
+ *
+ * Each call resets the debounce timer. Only the most recent call’s arguments and
+ * `this` binding are used when `fn` finally runs.
+ *
+ * If an {@link AbortSignal} is provided, debouncing is **disabled after abort**:
+ * pending work is cancelled and future calls become no-ops.
+ *
+ * @typeParam T - The function type being debounced.
+ *
+ * @param fn - The function to debounce.
+ * @param delay - The debounce window in milliseconds.
+ * @param options - Optional configuration.
+ * @param options.signal - Abort signal used to cancel pending work and ignore future calls.
+ *
+ * @returns A debounced function with the same parameters as `fn`.
+ *
+ * @example
+ * ```ts
+ * const onResize = debounce(() => console.log("resized"), 200);
+ * window.addEventListener("resize", onResize);
+ * ```
+ *
+ * @example
+ * ```ts
+ * const controller = new AbortController();
+ * const debounced = debounce((q: string) => search(q), 300, { signal: controller.signal });
+ *
+ * debounced("hel");
+ * debounced("hell");
+ * debounced("hello"); // only "hello" would run...
+ *
+ * controller.abort(); // ...unless aborted; pending call is cancelled and future calls do nothing
+ * debounced("ignored");
+ * ```
  */
 export function debounce<T extends (...args: Parameters<T>) => void>(
   fn: T,
